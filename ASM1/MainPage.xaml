@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="ASM1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ASM1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:ASM1.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <GridView ItemsSource="{x:Bind Students}">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Student">
+                    <StackPanel>
+                        <Image Width="150" Source="{x:Bind Image}" />
+                        <TextBlock FontSize="16" Text="{x:Bind Name}" />
+                        <TextBlock FontSize="16" Text="{x:Bind YearOfBirth}" />
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>
